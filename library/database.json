@@ -1,0 +1,28 @@
+{
+    "Books": {
+        "33564654643579": {
+            "title": "Frankenstein",
+            "author": "Mary Wollstonecraft Shelley",
+            "category": "Fiction",
+            "subcategory": "Classics"
+        },
+        "46368753436785": {
+            "title": "The Color of Magic",
+            "author": "Terry Pratchett",
+            "category": "Fiction",
+            "subcategory": "Fantasy"
+        },
+        "78273484696534": {
+            "title": "Dali",
+            "author": "Salvador Dal",
+            "category": "Non-fiction",
+            "subcategory": "Art"
+        },
+        "58725574875673": {
+            "title": "The Biggest Ideas in the Universe",
+            "author": "Sean Carroll",
+            "category": "Non-fiction",
+            "subcategory": "Science"
+        }
+    }
+}
