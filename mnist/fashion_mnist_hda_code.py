@@ -26,26 +26,26 @@ class Net(nn.Module):
 
 
 def run_prediction():
-    model_path = hou.pwd().parm('model').eval()    
-    
+    model_path = hou.pwd().parm('model').eval()
+
     model = Net().to(device)
     model.load_state_dict(torch.load(model_path, weights_only=True))
     model.eval()
-    
+
     image_path = hou.pwd().parm('img').eval()
     image = Image.open(image_path).convert("L")
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Resize((28,28))
     ])
-    
+
     image = transform(image).to(device)
-    
+
     with torch.inference_mode():
         output = model(image)
         prediction = torch.argmax(output).item()
-    return prediction  
-    
+    return prediction
+
 def class_lookup(prediction):
         clothing_items = {
                 "0": "tshirt",
@@ -60,12 +60,12 @@ def class_lookup(prediction):
                 "9": "ankle boot"
         }
         output = clothing_items.get(prediction)
-        return output    
-        
+        return output
+
 def main():
     prediction = run_prediction()
     answer = class_lookup(str(prediction))
-    hou.pwd().parm('answer_out').set(answer) 
+    hou.pwd().parm('answer_out').set(answer)
 
 
-    
+
